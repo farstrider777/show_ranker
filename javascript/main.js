@@ -22,10 +22,13 @@ var tvShow = {name: "friends"};
 
 var info = []
 
+
 function fluff(data, fun, won){
   console.log(data)
   console.log(fun)
   console.log(won)
+//  info.push(data)
+//  numbers.push(5, 6, 7);
 }
 
 var search = "fight"
@@ -37,8 +40,8 @@ function getData (test) {
    info = $.ajax({
     //  url: `https://api.themoviedb.org/3/search/keyword?api_key=c1590ac6ed33444a3c6284a9319516fe&page=1`,
     //  url: `https://api.themoviedb.org/3/tv/1?api_key=c1590ac6ed33444a3c6284a9319516fe`,
-    //  url: `https://api.themoviedb.org/3/search/tv?api_key=c1590ac6ed33444a3c6284a9319516fe&query=better+things`,
-       url: `https://api.themoviedb.org/3/discover/tv?api_key=c1590ac6ed33444a3c6284a9319516fe&sort_by=vote_average.asc&page=1&timezone=America/New_York&include_null_first_air_dates=false&vote_average.gte=6&vote_count.gte=10`,
+    //  url: `https://api.themoviedb.org/3/search/tv?api_key=c1590ac6ed33444a3c6284a9319516fe&query=its+always+sunny`,
+       url: `https://api.themoviedb.org/3/discover/tv?api_key=c1590ac6ed33444a3c6284a9319516fe&sort_by=vote_average.asc&page=1&timezone=America/New_York&include_null_first_air_dates=false&vote_count.gte=10`,
        language: "en-US",
 
     //  url: `https://api.themoviedb.org/3/movie/550?api_key={api_key}&callback=test`,
