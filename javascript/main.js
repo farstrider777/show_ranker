@@ -20,17 +20,25 @@
 
 
 var info = [];
-
+var i = 1
 
 function fluff(data, fun, won){
-  console.log(data)
-  console.log(fun)
-  console.log(won)
-  console.log(data.results)
+//  console.log(data)
+//  console.log(fun)
+//  console.log(won)
+//  console.log(data.results)
   for(var count = 0; count < data.results.length; count++){
     info.push(data.results[count])
   }
- console.log(info[1])
+  for(var count = 0; count < info.length; count++){
+    console.log(info[count].name);
+  }
+// console.log(info[1])
+ i++;
+ if(i < 4){
+  // console.log(i);
+   getData(fluff, i)
+  }
 }
 
 var search = "fight"
@@ -38,14 +46,14 @@ var search = "fight"
 //&language=en-US
 //vote_average.gte
 
-function getData (test) {
+function getData (test, pageNum) {
    $.ajax({
     //  url: `https://api.themoviedb.org/3/search/keyword?api_key=c1590ac6ed33444a3c6284a9319516fe&page=1`,
     //  url: `https://api.themoviedb.org/3/tv/1?api_key=c1590ac6ed33444a3c6284a9319516fe`,
     //  url: `https://api.themoviedb.org/3/search/tv?api_key=c1590ac6ed33444a3c6284a9319516fe&query=its+always+sunny`,
        url: `https://api.themoviedb.org/3/discover/tv?api_key=${token}&vote_count.gte=10`,
        language: "en-US",                                //     c1590ac6ed33444a3c6284a9319516fe
-       page: "1",
+       page: "2",            //`${page}`     `${pageNum}`
        sort_by: "vote_average.asc",
        timezone: "America/New_York",
        include_null_first_air_dates: "false",
@@ -56,6 +64,7 @@ function getData (test) {
   //    },
       success: test
   });
+  console.log(pageNum);
 }
 
 //GET// https://api.themoviedb.org/3/search/company?api_key=c1590ac6ed33444a3c6284a9319516fe&page=1     ${token}
@@ -65,4 +74,4 @@ function getData (test) {
 
 getData(fluff);
 
-console.log(token)
+//console.log(token)
