@@ -18,17 +18,19 @@
 
 //url: `https://api.themoviedb.org/3/movie/551?api_key=c1590ac6ed33444a3c6284a9319516fe`,
 
-var tvShow = {name: "friends"};
 
-var info = []
+var info = [];
 
 
 function fluff(data, fun, won){
   console.log(data)
   console.log(fun)
   console.log(won)
-//  info.push(data)
-//  numbers.push(5, 6, 7);
+  console.log(data.results)
+  for(var count = 0; count < data.results.length; count++){
+    info.push(data.results[count])
+  }
+ console.log(info[1])
 }
 
 var search = "fight"
@@ -37,13 +39,16 @@ var search = "fight"
 //vote_average.gte
 
 function getData (test) {
-   info = $.ajax({
+   $.ajax({
     //  url: `https://api.themoviedb.org/3/search/keyword?api_key=c1590ac6ed33444a3c6284a9319516fe&page=1`,
     //  url: `https://api.themoviedb.org/3/tv/1?api_key=c1590ac6ed33444a3c6284a9319516fe`,
     //  url: `https://api.themoviedb.org/3/search/tv?api_key=c1590ac6ed33444a3c6284a9319516fe&query=its+always+sunny`,
-       url: `https://api.themoviedb.org/3/discover/tv?api_key=c1590ac6ed33444a3c6284a9319516fe&sort_by=vote_average.asc&page=1&timezone=America/New_York&include_null_first_air_dates=false&vote_count.gte=10`,
-       language: "en-US",
-
+       url: `https://api.themoviedb.org/3/discover/tv?api_key=${token}&vote_count.gte=10`,
+       language: "en-US",                                //     c1590ac6ed33444a3c6284a9319516fe
+       page: "1",
+       sort_by: "vote_average.asc",
+       timezone: "America/New_York",
+       include_null_first_air_dates: "false",
     //  url: `https://api.themoviedb.org/3/movie/550?api_key={api_key}&callback=test`,
       dataType: 'json',
   //   data: {
@@ -53,10 +58,10 @@ function getData (test) {
   });
 }
 
-//GET// https://api.themoviedb.org/3/search/company?api_key=c1590ac6ed33444a3c6284a9319516fe&page=1
-//https://api.themoviedb.org/3/search/company?api_key=<<api_key>>&page=1
-//https://api.themoviedb.org/3/search/keyword?api_key=<<api_key>>&page=1
-
+//GET// https://api.themoviedb.org/3/search/company?api_key=c1590ac6ed33444a3c6284a9319516fe&page=1     ${token}
+//https://api.themoviedb.org/3/search/company?api_key=<<api_key>>&page=1            sort_by=vote_average.asc&
+//https://api.themoviedb.org/3/search/keyword?api_key=<<api_key>>&page=1            &timezone=America/New_York
+//&include_null_first_air_dates=false
 
 getData(fluff);
 
