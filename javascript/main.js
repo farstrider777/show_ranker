@@ -23,7 +23,7 @@ var info = [];
 var i = 1
 
 function fluff(data, fun, won){
-//  console.log(data)
+  //console.log(data)
 //  console.log(fun)
 //  console.log(won)
 //  console.log(data.results)
@@ -51,9 +51,9 @@ function getData (test, pageNum) {
     //  url: `https://api.themoviedb.org/3/search/keyword?api_key=c1590ac6ed33444a3c6284a9319516fe&page=1`,
     //  url: `https://api.themoviedb.org/3/tv/1?api_key=c1590ac6ed33444a3c6284a9319516fe`,
     //  url: `https://api.themoviedb.org/3/search/tv?api_key=c1590ac6ed33444a3c6284a9319516fe&query=its+always+sunny`,
-       url: `https://api.themoviedb.org/3/discover/tv?api_key=${token}&vote_count.gte=10`,
+       url: `https://api.themoviedb.org/3/discover/tv?api_key=${token}&vote_count.gte=10&page=2`,
        language: "en-US",                                //     c1590ac6ed33444a3c6284a9319516fe
-       page: "2",            //`${page}`     `${pageNum}`
+       //page: "5",            //`${page}`     `${pageNum}`
        sort_by: "vote_average.asc",
        timezone: "America/New_York",
        include_null_first_air_dates: "false",
@@ -72,6 +72,6 @@ function getData (test, pageNum) {
 //https://api.themoviedb.org/3/search/keyword?api_key=<<api_key>>&page=1            &timezone=America/New_York
 //&include_null_first_air_dates=false
 
-getData(fluff);
+getData(fluff, 1);
 
 //console.log(token)
